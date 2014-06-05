@@ -30,7 +30,7 @@ class XboxLeaders::Api
   private
 
   def get(path, query={})
-    response = self.class.get(path + ".json", timeout: timeout, query: query).to_hash
+    response = self.class.get(path, timeout: timeout, query: query).to_hash
 
     if response['status'] == 'error'
       raise ArgumentError, "#{response['data']['code']}: #{response['data']['message']}"
