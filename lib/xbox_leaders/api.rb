@@ -3,7 +3,7 @@ require 'httparty'
 class XboxLeaders::Api
 
   include HTTParty
-  base_uri 'https://www.xboxleaders.com/api/2.0'
+  base_uri 'http://xbox.alvanista.com'
 
   attr_accessor :timeout
   
@@ -12,19 +12,19 @@ class XboxLeaders::Api
   end
 
   def fetch_achievements(gamertag, game_id)
-    get('/achievements', gamertag: gamertag, gameid: game_id)
+    get('/achievements.php', gamertag: gamertag, gameid: game_id)
   end
 
   def fetch_friends(gamertag)
-    get('/friends', gamertag: gamertag)
+    get('/friends.php', gamertag: gamertag)
   end
   
   def fetch_games(gamertag)
-    get('/games', gamertag: gamertag)
+    get('/games.php', gamertag: gamertag)
   end
 
   def fetch_profile(gamertag)
-    get('/profile', gamertag: gamertag)
+    get('/profile.php', gamertag: gamertag)
   end
 
   private
